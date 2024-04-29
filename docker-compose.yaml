@@ -1,0 +1,18 @@
+version: '2.1'
+services:
+  backend:
+    build: ./back
+    volumes:
+      - ./back:/back
+    ports:
+      - 9000:9000
+  front:
+      build: ./front
+      volumes:
+        - ./front:/front
+        - /front/node_modules
+      ports:
+        - 5173:5173
+      command: ["npm","run","dev"]
+
+
